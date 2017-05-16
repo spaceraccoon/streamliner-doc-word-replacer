@@ -1,0 +1,15 @@
+{%- extends "bootstrap/base.html" %}
+
+{% block content %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+<div class="jumbotron vertical-center">
+	<div class="container">
+		<h1>Streamliner</h1>
+		<form action="/transform" method="post" enctype="multipart/form-data">
+			<input type="file" name="data_file">
+			<br/>
+			<input type="submit" class="btn btn-primary btn-lg btn-block" value="Convert">
+		</form>
+	</div>
+</div>
+{%- endblock %}
