@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request, send_file, render_template, flash, redirect, url_for, after_this_request
+from flask import Flask, request, send_file, render_template, flash
 from docx import Document
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
@@ -241,7 +241,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def transform(document, f):
+def streamline(document, f):
     syllables_saved = 0
 
     for paragraph in document.paragraphs:
@@ -271,7 +271,6 @@ def transform(document, f):
     # saved message
     # flash('You saved ' + syllables_saved + ' syllables!','success')
     document.save(f)
-    return f
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -286,7 +285,7 @@ def index():
             else:
                 document = Document(file)
                 f = StringIO()
-                output = transform(document, f)
+                streamline(document, f)
                 f.seek(0)
                 return send_file(f, as_attachment=True, 
                     attachment_filename='streamlined_' + filename)
