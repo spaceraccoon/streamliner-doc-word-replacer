@@ -2,7 +2,7 @@
 
 Flask webapp that replaces words in uploaded docx files and outputs the new version. Useful if you want to quickly replace a dictionary of words. Streamliner was built for a debating website to reduce the number of syllables in a speech, but can be easily repurposed.
 
-![Screenshot](screenshot.png?raw=true "Screenshot")
+![Screenshot](screenshot.png "Screenshot")
 
 ## Setup
 
