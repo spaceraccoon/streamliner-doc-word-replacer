@@ -1,15 +1,28 @@
-{%- extends "bootstrap/base.html" %}
+{% extends "layout.html" %}
 
-{% block content %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
-<div class="jumbotron vertical-center">
-	<div class="container">
-		<h1>Streamliner</h1>
-		<form action="/transform" method="post" enctype="multipart/form-data">
-			<input type="file" name="data_file">
-			<br/>
-			<input type="submit" class="btn btn-primary btn-lg btn-block" value="Convert">
-		</form>
-	</div>
-</div>
-{%- endblock %}
+{% block body %}
+  <div class="container">
+    <div class="fixed-center">
+      <h1>Streamliner</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}"">
+              {{message}}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <div class="fixed-center-inner">
+        <p>
+          Streamliner cuts down on jargon by replacing long words with shorter ones. Securely upload your .docx document and it'll do the rest! If a paragraph has underlined
+          text, Streamliner treats it as a card and ignores it.
+        </p>
+        <form method=post enctype=multipart/form-data>
+          <p><input type="file" name="file"></p>
+          <input type="submit" class="btn btn-primary btn-lg btn-block" value="Convert">
+        </form>      
+      </div>
+    </div>
+  </div>
+{% endblock %}

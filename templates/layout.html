@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Streamliner</title>
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css"> 
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  {% block scripts %}{% endblock %}
+</head>
+
+<body>
+
+  <!-- Main Page Content -->
+  <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+
+          <a class="navbar-brand" href="#">Streamliner</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% block body %}{% endblock %}
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">
+        Website developed by <a href="https://github.com/spaceraccoon">Eugene Lim</a>. Attribution and license info on <a href="https://github.com/spaceraccoon/doc-word-replacer">Github</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
