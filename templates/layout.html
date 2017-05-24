@@ -1,41 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Streamliner</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-  <!-- Bootstrap 3 -->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> 
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css"> 
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  {% block scripts %}{% endblock %}
-</head>
+    <title>Streamliner</title>
 
-<body>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap-theme.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
 
-  <!-- Main Page Content -->
-  <div class="container">
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-
           <a class="navbar-brand" href="#">Streamliner</a>
         </div>
       </div>
-    </div>
-  </div>
-  
-  {% block body %}{% endblock %}
+    </nav>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted">
-        Website developed by <a href="https://github.com/spaceraccoon">Eugene Lim</a>. Attribution and license info on <a href="https://github.com/spaceraccoon/streamliner/">Github</a>.
-      </p>
-    </div>
-  </footer>
-</body>
+    {% block body %}{% endblock %}
 
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+            Website developed by <a href="https://github.com/spaceraccoon">Eugene Lim</a>. Attribution and license info on <a href="https://github.com/spaceraccoon/doc-word-replacer">Github</a>.
+        </p>
+      </div>
+    </footer>
+
+  </body>
 </html>

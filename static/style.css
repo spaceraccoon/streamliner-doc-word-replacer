@@ -1,15 +1,16 @@
 html {
-  background: url(https://upload.wikimedia.org/wikipedia/commons/4/42/Vienna_Debate_Workshop-Finale.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  position: relative;
+  min-height: 100%;
 }
-
 
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background: url(/static/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .footer {
@@ -22,22 +23,32 @@ body {
   text-align: center;
 }
 
+body > .container {
+  padding: 60px 15px 0;
+}
 .container .text-muted {
   margin: 20px 0;
 }
 
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-size: 80%;
+}
+
 .fixed-center {
-  position: fixed;
-  left: 50%;
-  margin-left: -200px;
-  width: 400px;
-  top: 15%;
-  background-color: #fff;
+  background-color: #ffffff;
   opacity: 0.9;
+  width: 50%;
+  border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
   z-index: 2;
+  margin: 10% 25%;
 }
 
 .fixed-center h1 {
@@ -53,9 +64,17 @@ body {
 
 .fixed-center-inner {
   padding: 10px 20px 20px;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .fixed-center {
+    width: 90%;
+    margin: 5% 5%;
+  }
 }
 
 .alert {
-  margin-bottom: 0px;
-  border-radius: 0px;
+    margin-bottom: 0px;
 }

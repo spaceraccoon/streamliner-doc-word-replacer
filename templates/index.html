@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <div class="container">
+  <div class="container" id="fixed">
     <div class="fixed-center">
       <h1>Streamliner</h1>
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
           {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
+            <div class="alert alert-{{ category }}"">
               {{message}}
             </div>
           {% endfor %}
@@ -15,14 +15,43 @@
       {% endwith %}
       <div class="fixed-center-inner">
         <p>
-          Streamliner cuts down on jargon by replacing long phrases and words with shorter ones. Securely upload your .docx document and it'll do the rest! If a paragraph has underlined
+          Streamliner cuts down on jargon by replacing long words with shorter ones. Securely upload your .docx document and it'll do the rest! If a paragraph has underlined
           text, Streamliner treats it as a card and ignores it.
         </p>
-        <form method=post enctype=multipart/form-data>
+        <form method=post enctype=multipart/form-data id="upload-form">
           <p><input type="file" name="file"></p>
-          <input type="submit" class="btn btn-primary btn-lg btn-block" value="Convert">
+          <input type="submit" id="submit-button" class="btn btn-primary btn-lg btn-block" value="Convert">
         </form>
       </div>
     </div>
   </div>
+
+<script type="text/javascript">
+// function sleep(milliseconds) {
+//   var start = new Date().getTime();
+//   for (var i = 0; i < 1e7; i++) {
+//     if ((new Date().getTime() - start) > milliseconds){
+//       break;
+//     }
+//   }
+// }
+
+// window.onload=function() {
+//   document.getElementById("upload-form").onsubmit=function() {
+//     document.forms['upload-form'].action='/convert';
+//     document.forms['upload-form'].submit();
+//     sleep(1000);
+//     document.forms['upload-form'].action='/';
+//     document.forms['upload-form'].submit();
+//     return false;
+//   }
+// }
+      // $('#upload-form').on('submit',function(e) {
+      //     if($('#lol').val() == "poop"){ //Sample error check
+      //         e.preventDefault();
+      //         alert($('#lol').val());
+      //     }
+      // });
+</script>
+
 {% endblock %}
