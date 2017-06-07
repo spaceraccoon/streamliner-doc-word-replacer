@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file, render_template, flash
 from docx import Document
+from docx.enum.text import WD_COLOR_INDEX
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
     
