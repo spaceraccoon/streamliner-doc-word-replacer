@@ -3,11 +3,12 @@ from docx import Document
 from docx.enum.text import WD_COLOR_INDEX
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
+from collections import OrderedDict
     
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'SECRET_KEY'  # Insert secret key here
-
+    app.config['DEBUG'] = True
     return app
 
 app = create_app()
@@ -15,7 +16,7 @@ app = create_app()
 ALLOWED_EXTENSIONS = set(['docx'])
 
 # Replace this with your own entries in the form old: (new,syllable_diff) 
-REPLACEMENT_DICT = {"because": ("since",1),
+replacement_dict = {"because": ("since",1),
                     "insofar as": ("since",3),
                     "in a world where": ("since",3),
                     "therefore": ("thus",1),
@@ -236,6 +237,9 @@ REPLACEMENT_DICT = {"because": ("since",1),
                     "protect": ("guard",1),
                     "important": ("crucial",1)
 }
+
+REPLACEMENT_DICT = OrderedDict(sorted(replacement_dict.items(), 
+    key=lambda t: len(t[0]), reverse=True))
 
 # Checks extensions
 def allowed_file(filename):
