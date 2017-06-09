@@ -8,7 +8,7 @@ from collections import OrderedDict
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'SECRET_KEY'  # Insert secret key here
-    app.config['DEBUG'] = True
+    # app.config['DEBUG'] = True
     return app
 
 app = create_app()
