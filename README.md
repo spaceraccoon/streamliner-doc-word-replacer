@@ -16,6 +16,6 @@ Streamliner was built on Python 2.7 and Flask. It uses the python-docx library, 
 2. `export FLASK_APP=app.py`
 3. `flask run`
 
-## TODO
+## Deploy
 
-1. Find way to re-render the index template after send_file. This would allow me to show the number of syllables saved via a flash.
+An integrated, customized version of Streamliner is available that includes logging, Javascript-based feedback (e.g. 'You saved X syllables!'), and more. Contact me at [my website](https://www.pinewebarchitects.com/) to request it.

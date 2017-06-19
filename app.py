@@ -3,7 +3,6 @@ from docx import Document
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
 from models import REPLACEMENT_DICT, replace_paragraph
-import re
     
 def create_app():
     app = Flask(__name__)
