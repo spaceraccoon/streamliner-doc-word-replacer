@@ -2,6 +2,7 @@ from collections import OrderedDict
 from docx.enum.text import WD_COLOR_INDEX
 from docx.shared import Pt
 
+
 # Replace this with your own entries in the form old: (new,syllable_diff)
 replacement_dict = {
                     "because": ("since", 1),

@@ -3,7 +3,6 @@ from docx import Document
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
 from models import REPLACEMENT_DICT, replace_paragraph
-import time
 
 
 def create_app():
@@ -27,20 +26,15 @@ def streamline(document, f, mark):
     replacements = 0
     syllables_saved = 0
 
-    t0 = time.clock()
     for paragraph in document.paragraphs:
-        print paragraph.text, "MARK"
         is_card = False
         # Detects if paragraph is a card (has underlined words)
         for run in paragraph.runs:
-            print run.text
-            print run.font
             if run.underline or run.style.font.underline:
                 is_card = True
         r, s = replace_paragraph(paragraph, is_card, mark)
         replacements += r
         syllables_saved += s
-    print time.clock() - t0, "seconds process time"
 
     document.save(f)
 
