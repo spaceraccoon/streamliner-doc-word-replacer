@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from docx.enum.text import WD_COLOR_INDEX
+from docx.enum.text import WD_COLOR
 from docx.shared import Pt
 
 
@@ -334,10 +334,10 @@ def replace_paragraph(paragraph, is_card, mark):
     # Clear paragraph and insert new formatted runs
     paragraph.clear()
     for ele in p_list:
-        substring, was_replaced, syllables_saved, font, style = [e for e in
-                                                                 ele]
+        substring, was_replaced, s, font, style = [e for e in ele]
         if was_replaced:
             replacements += 1
+            syllables_saved += s
             if is_card:
                 # Breaks text further into characters to linedown; only
                 # characters that are not in the value are downsized
@@ -350,7 +350,7 @@ def replace_paragraph(paragraph, is_card, mark):
                     run = add_set_run(paragraph, run, substring[index], font,
                                       style)
                     if mark:
-                        run.font.highlight_color = WD_COLOR_INDEX.TURQUOISE
+                        run.font.highlight_color = WD_COLOR.TURQUOISE
                     substring = substring[index+1:]
 
                 run = add_set_run(paragraph, run, substring, font, style)
@@ -359,7 +359,7 @@ def replace_paragraph(paragraph, is_card, mark):
             else:
                 run = add_set_run(paragraph, run, substring, font, style)
                 if mark:
-                    run.font.highlight_color = WD_COLOR_INDEX.TURQUOISE
+                    run.font.highlight_color = WD_COLOR.TURQUOISE
                 continue
 
         add_set_run(paragraph, run, substring, font, style)
