@@ -257,7 +257,8 @@ def add_set_run(paragraph, run, text, font, style):
 
     Limited to a few properties for optimization.
     '''
-    run = paragraph.add_run(text)
+    run = paragraph.add_run()
+    run.add_text(text)
     if font.bold is False:
         run.font.bold = False
     elif font.bold:
