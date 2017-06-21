@@ -27,4 +27,4 @@ Replacing words in pure text is straightforward, but a couple of things added la
 6. Preserving the previous formatting is essential for usability. However, the previous considerations meant that I had to scrap the runs that held those styles and had to "remember" the styles.
 
 ## Deploy
-An integrated, customized version of Streamliner that includes database logging, JavaScript-based feedback (e.g. 'You saved X syllables!'), and more is available and used by companies. Contact me at [my website](https://www.pinewebarchitects.com/) to request it.
+An integrated, customized version of Streamliner that includes database logging, JavaScript-based feedback (e.g. 'You saved X syllables!'), and more is available and used by companies. Contact me at [my website](https://www.pinewebarchitects.com/).
