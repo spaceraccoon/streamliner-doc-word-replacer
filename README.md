@@ -13,8 +13,9 @@ Streamliner was built on Python 2.7 and Flask. It uses the python-docx library, 
 ### Quickstart
 
 1. Clone the project and enter the directory
-2. `export FLASK_APP=app.py`
-3. `flask run`
+2. Fill in replacement_dict in models.py using the format `KEY: (VALUE,SYLLABLE_DIFF)`
+3. `export FLASK_APP=app.py`
+4. `flask run`
 
 ## Notes
 Replacing words in pure text is straightforward, but a couple of things added layers of complexity that made a straightforward `replace()` impossible:
