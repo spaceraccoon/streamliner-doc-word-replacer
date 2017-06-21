@@ -2,7 +2,7 @@ from flask import Flask, request, send_file, render_template, flash
 from docx import Document
 from cStringIO import StringIO
 from werkzeug.utils import secure_filename
-from models import REPLACEMENT_DICT, replace_paragraph
+from models import replace_paragraph, streamline
 
 
 def create_app():
@@ -20,23 +20,6 @@ ALLOWED_EXTENSIONS = set(['docx'])
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-def streamline(document, f, mark):
-    replacements = 0
-    syllables_saved = 0
-
-    for paragraph in document.paragraphs:
-        is_card = False
-        # Detects if paragraph is a card (has underlined words)
-        for run in paragraph.runs:
-            if run.underline or run.style.font.underline:
-                is_card = True
-        r, s = replace_paragraph(paragraph, is_card, mark)
-        replacements += r
-        syllables_saved += s
-
-    document.save(f)
 
 
 @app.route('/', methods=['GET', 'POST'])

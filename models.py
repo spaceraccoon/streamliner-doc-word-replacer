@@ -325,6 +325,9 @@ def replace_paragraph(paragraph, is_card, mark):
             if not substring[1]:    # Make sure text has not yet been replaced
                 # Replaces element with unpacked list of elements, split by
                 # the key
+                if is_card and (substring[4].font.underline is None or
+                                substring[3].underline is False):
+                    continue
                 if k in substring[0]:
                     p_list[index:index+1] = split_list(substring, k, is_card,
                                                        False)
@@ -366,6 +369,23 @@ def replace_paragraph(paragraph, is_card, mark):
         add_set_run(paragraph, run, substring, font, style)
 
     return replacements, syllables_saved
+
+
+def streamline(document, f, mark):
+    replacements = 0
+    syllables_saved = 0
+
+    for paragraph in document.paragraphs:
+        is_card = False
+        # Detects if paragraph is a card (has underlined words)
+        for run in paragraph.runs:
+            if run.underline or run.style.font.underline:
+                is_card = True
+        r, s = replace_paragraph(paragraph, is_card, mark)
+        replacements += r
+        syllables_saved += s
+
+    document.save(f)
 
 
 # Initializes dict constants
